@@ -234,6 +234,37 @@ export default function App() {
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
               Descubra exatamente o que comer no dia a dia para reduzir e estabilizar sua pressão arterial — mesmo sem experiência com dieta
             </p>
+
+            {/* Mobile Image - Visible only on mobile, below subtitle */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ 
+                opacity: 1, 
+                scale: 1,
+                y: [0, -15, 0]
+              }}
+              transition={{ 
+                duration: 0.6, 
+                delay: 0.2,
+                y: {
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
+              className="relative mb-8 md:hidden"
+            >
+              <div className="relative z-10">
+                <img 
+                  src="https://i.ibb.co/fVWrDhJY/IMAGEM-DO-PRODUTO-Photoroom.webp" 
+                  alt="Mockup Protocolo Anti-Hipertensão" 
+                  className="w-full h-auto object-contain max-h-[400px] drop-shadow-2xl mx-auto"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] bg-emerald-50 rounded-full -z-10 blur-3xl opacity-50"></div>
+            </motion.div>
+
             <div className="flex flex-col sm:flex-row gap-4 relative">
               <button 
                 onClick={handleCheckout}
@@ -277,7 +308,7 @@ export default function App() {
                   ease: "easeInOut"
                 }
               }}
-              className="relative"
+              className="relative hidden md:block"
             >
             <div className="relative z-10">
               <img 
